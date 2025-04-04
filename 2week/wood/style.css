@@ -1,0 +1,117 @@
+html, body, p, span {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    font-family: Arial;
+    color: #FFA500;
+}
+
+.header {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 100px 0 0 0;
+    background: url('images/header-bg.png') no-repeat center center/cover;
+    text-align: center;
+}
+
+.header-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 54px;
+    border-top: 30px solid orange;
+    border-right: 30px solid orange;
+    border-left: 30px solid orange;
+}
+
+.header-contents-left {
+    /* 질문: header-title 가 엄청 길어져도 overflow: hidden 으로 막을 수가 있는데, 왜 막아지는 건지 모르겠네요 ㅠㅠ */
+    overflow: hidden;
+    margin: 0 auto auto auto;
+    padding: 6px;
+    text-align: left;
+}
+
+.header-contents-title {
+    text-decoration-thickness: 4px;
+    text-decoration-color: #FFA500;
+    text-underline-offset: 9px;
+    overflow-wrap: break-word;
+    font-size: 32px;
+    text-decoration: underline;
+    letter-spacing: 6px;
+    word-break: keep-all;
+}
+
+.header-contents-body {
+    margin-top: 30px;
+    line-height: 160%;
+}
+
+.header-contents-right {
+    margin-bottom: -110px;
+}
+
+.contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: #ddd;
+}
+
+.card {
+    max-width: 500px;
+    overflow: hidden;
+    margin: 15px;
+    transition: transform 0.3s ease-in-out;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card > img {
+    width: 100%;
+    aspect-ratio: 30/23;
+    vertical-align: top;
+}
+
+.card-info {
+    border-bottom: 4px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info > span {
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.footer {
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #AAAAAA;
+    color: #AAAAAA;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 2.9px;
+}
