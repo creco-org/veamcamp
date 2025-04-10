@@ -1,0 +1,212 @@
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial';
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: #F4F4F4;
+}
+
+.wrapper {
+    min-height: 100vh;
+    background-color: #D9D9D9;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 
+        .container 에 width: 960px 를 주면 화면을 반응적이지 않게 된다.
+        그래서 .container에는 max-width: 960px 를 주어 반응형 화면을 유지할 수 있도록 하고
+        .header 에 min-width: 100% 를 주어 너비를 보장하고 padding 을 줘 간격을 맞춘다.
+    */
+    min-width: 100%;
+    box-sizing: border-box;
+    margin: 30px 0;
+}
+
+.header .title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 2;
+    color: #FF6600;
+}
+
+.header .image {
+    flex-basis: 124px;
+}
+
+.header .image img {
+    width: 100%;
+}
+
+.content {
+    background-color: #D9D9D9;
+}
+
+.content .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding-top: 30px;
+}
+
+.content .food {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* .description 요소가 커져도 UI가 일관성을 갖기 위해 flex를 사용 */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 255px;
+    /* border-radius 유지용 */
+    overflow: hidden; 
+    max-width: 300px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+}
+
+/* 마지막요소가 grid 처럼 동작하게 하기 위해 처리 */
+.content .food:last-child {
+    flex-grow: 0;
+    flex-basis: calc(50vw - (90px / 2));
+}
+
+.content .food img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.content .food .top {
+    position: relative;
+}
+
+.content .food .top .name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 0px 12px 0px 0px;
+
+    /* 말 줄임표 */
+    overflow: hidden;
+    box-sizing: border-box;
+    max-width: calc(100% - 26px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.bg-orange .tag {
+    background-color: #FF6600;
+}
+
+.bg-green .tag {
+    background-color: #17A651;
+}
+
+.bg-blue .tag {
+    background-color: #0075FF;
+}
+
+.orange {
+    color: #FF6600;
+}
+
+.green {
+    color: #17A651;
+}
+
+.blue {
+    color: #0075FF;
+}
+
+.content .food .middle {
+    /* description 요소가 커져도 UI가 일관성을 갖기 위해 flex-grow 1 적용 */
+    flex-grow: 1;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.content .food .middle .description {
+    color: #666666;
+}
+
+.content .food .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 18px 26px;
+    background: #F4F4F4;
+}
+
+.content .food .bottom .tag {
+    padding: 0 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: 'Noto Sans CJK KR';
+    font-weight: 500;
+    line-height: 22px;
+    color: #FFFFFF;
+
+    /* 말줄임표 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.content .food .bottom .tag::before {
+    content: '#';
+    margin-right: 2px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer {
+    padding: 30px 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #AAAAAA;
+    letter-spacing: 0.24em;
+}
+
+@media (max-width: 600px) {
+    .header .container {
+        flex-wrap: wrap-reverse;
+        flex-basis: 200px;
+        height: auto;
+    }
+
+    .header .container .title,
+    .header .container .image,
+    .content .food {
+        margin: 0 auto;
+    }
+
+    .content .food:last-child {
+        flex-grow: 1;
+    }
+    
+    .footer .container p {
+        text-align: center;
+    }
+}
